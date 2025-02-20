@@ -1,1 +1,186 @@
-index.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DESARROLLO SUSTENTABLE</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      /* Se elimina la imagen de fondo, ya que se usará el video */
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      cursor: none; /* Oculta el cursor predeterminado */
+    }
+    
+    /* Contenedor para el video de fondo */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .video-background iframe {
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    
+    /* Contenedor para la música de fondo (oculta) */
+    .audio-background iframe {
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: -9999px;
+    }
+
+    .marco {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+      width: 320px;
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    .iconos {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .icono {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+    
+    /* Elemento para el cursor personalizado (unicornio animado) */
+    #custom-cursor {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      pointer-events: none;
+      background-image: url('https://c.tenor.com/kp4p8pn8C34AAAAd/unicorn.gif');
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 10000;
+    }
+    
+    /* Estilos para las estrellas que se dejan tras el cursor */
+    .star {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      pointer-events: none;
+      background-image: url('https://img.icons8.com/emoji/48/000000/star-emoji.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 9999;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Video de fondo -->
+  <div class="video-background">
+    <iframe src="https://www.youtube.com/embed/w6K0iDsu0TM?autoplay=1&mute=1&controls=0&showinfo=0&loop=1&playlist=w6K0iDsu0TM" 
+            frameborder="0" 
+            allow="autoplay; fullscreen" 
+            allowfullscreen>
+    </iframe>
+  </div>
+  
+  <!-- Música de fondo (oculta) -->
+  <div class="audio-background">
+    <iframe src="https://www.youtube.com/embed/yuf1Ear-Eww?autoplay=1&controls=0&loop=1&playlist=yuf1Ear-Eww" 
+            frameborder="0" 
+            allow="autoplay">
+    </iframe>
+  </div>
+  
+  <div class="marco">
+    <h1>DESARROLLO SUSTENTABLE</h1>
+    <h2>𐐘 ඞ</h2>
+    <div class="iconos">
+      <a href="https://correocuauammx-my.sharepoint.com/:w:/g/personal/2203064682_cua_uam_mx/Ed_D3QPrAQtEgY56Pyy5pjsBnPDgVaHhJzLs3-r1I__oUw?e=nHY496">
+        <img class="icono" src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Microsoft_Word_2013-2019_logo.svg" alt="Word">
+      </a>
+      <a href="https://correocuauammx-my.sharepoint.com/:p:/g/personal/2203064682_cua_uam_mx/EXXMD5I1dXRLtczGc5EoJgoBbZLZ-SE6ga9Xk3LXzJRhDQ?e=0jc5m8">
+        <img class="icono" src="https://w7.pngwing.com/pngs/872/849/png-transparent-microsoft-powerpoint-icon-microsoft-powerpoint-presentation-slide-slide-show-power-point-angle-text-rectangle-thumbnail.png" alt="PowerPoint">
+      </a>
+      <a href="https://youtu.be/lxZ6yAtXHhs">
+        <img class="icono" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube">
+      </a>
+    </div>
+    <h4>EQUIPO 5 DIBUJO</h4>
+    <h5>4IM10</h5>
+  </div>
+  
+  <!-- Elemento para el cursor personalizado -->
+  <div id="custom-cursor"></div>
+  
+  <script>
+    // Funcionalidad para el cursor personalizado y efecto de estrellas
+    document.addEventListener('DOMContentLoaded', () => {
+      const cursor = document.getElementById('custom-cursor');
+      
+      document.addEventListener('mousemove', e => {
+        // Actualiza la posición del cursor personalizado centrado en el mouse
+        cursor.style.left = (e.clientX - 25) + 'px';
+        cursor.style.top = (e.clientY - 25) + 'px';
+        
+        // Crea una estrella en la posición actual del mouse
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = e.clientX + 'px';
+        star.style.top = e.clientY + 'px';
+        
+        document.body.appendChild(star);
+        
+        // Anima la estrella: se desvanece y se desplaza ligeramente hacia arriba
+        setTimeout(() => {
+          star.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+          star.style.opacity = '0';
+          star.style.transform = 'translateY(-20px)';
+        }, 0);
+        
+        // Remueve la estrella después de la animación (1 segundo)
+        setTimeout(() => {
+          star.remove();
+        }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>
